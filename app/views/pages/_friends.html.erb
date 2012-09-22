@@ -1,0 +1,56 @@
+<article class="main-content">
+<%= raw @page.content_for(:body) %>
+</article>
+<section class="kish-mish">
+	<div class="col col1">
+    <% @page.children.each_with_index do |friend,i| %>
+      <% if [1,4,7,10].include?i+1 %>
+  		<div class="box">
+        <%= raw friend.content_for :image %>
+  			<div class="km-box-footer">
+  				<a class="logo" href="javascript:;">
+  				<%#= raw friend.content_for :logo %></a>
+  				<%= link_to "подробнее...>", friend.url, :class => "detailed" %>
+  				</a>
+  			</div>
+  		</div>
+  		<% end %>
+    <% end %>
+	</div>
+
+	<div class="col col2">
+    <!-- get content for column 2 here -->
+    <% @page.children.each_with_index do |friend,i| %>
+      <% if [2,5,8,11].include?i+1 %>
+  		<div class="box">
+        <%= raw friend.content_for :image %>
+  			<div class="km-box-footer">
+  				<a class="logo" href="javascript:;">
+  				<%#= raw friend.content_for :logo %></a>
+  				<%= link_to "подробнее...>", friend.url, :class => "detailed" %>
+  				</a>
+  			</div>
+  		</div>
+  		<% end %>
+    <% end %>
+	</div>
+	
+	<div class="col col3">
+    <!-- get content for column 3 here -->
+    <% @page.children.each_with_index do |friend,i| %>
+      <% if [3,6,9,12].include?i+1 %>
+  		<div class="box">
+        <%= raw friend.content_for :image %>
+  			<div class="km-box-footer">
+  				<a class="logo" href="javascript:;">
+  				<%#= raw friend.content_for :logo %></a>
+  				<%= link_to "подробнее...>", friend.url, :class => "detailed" %>
+  				</a>
+  			</div>
+  		</div>
+  		<% end %>
+    <% end %>
+	</div>
+	<div class="clear"></div>
+</section>
+<%= render :partial => 'social' %>

@@ -1,0 +1,21 @@
+<a id="top-logo" href="/"></a>
+<nav class="header-right">
+	<ul class="main-menu">
+		<li <%="class='active'" if in_section?('cards')%>>
+			<a href="/cards">Визитки</a>
+		</li>
+		<li <%="class='active'" if in_section?('friends') %>>
+			<a href="/friends">Наши друзья</a>
+		</li>
+		<li <%="class='active'" if in_section?('about') %>>
+			<a href="/about">О Tippo</a>
+		</li>
+	</ul>
+	<div class="socials">
+		<ul>
+      <% %w{twitter google vk facebook}.each do |type| %>
+        <li><%= link_to '', header_social_for(type), target: "_blank" %></li>
+      <% end %>
+		</ul>
+	</div>
+</nav>

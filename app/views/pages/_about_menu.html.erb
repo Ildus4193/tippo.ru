@@ -1,0 +1,5 @@
+<ul>
+  <% Page.find_by_title("about").children.each do |page| %>
+    <%= content_tag :li, link_to(page.custom_title, page_path(page)), :class => ('active' if page_is?(page.title)) %>
+  <% end %>	
+</ul>

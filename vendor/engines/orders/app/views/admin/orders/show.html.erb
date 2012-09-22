@@ -1,0 +1,54 @@
+<div id='actions'>
+  <h2><%= t('.details')%></h2>
+  <p>
+    <strong><%= t('.age') %>:</strong> <%= time_ago_in_words(@order.created_at) %>
+  </p>
+  <% if @order.spam? %>
+    <p>
+      <strong><%= t('.spam') %>:</strong> <%= t('.spam_yes') %>
+    </p>
+  <% end %>
+  <h2><%= t('.actions') %></h2>
+  <ul>
+    <li>
+      <%= link_to t('.back_to_all_orders'), {:action => 'index'}, :class => "back_icon" %>
+    </li>
+    <li>
+      <%= link_to t('admin.orders.delete'),
+                  admin_order_url(@order),
+                  :class => 'delete_icon no-tooltip confirm-delete',
+                  :title => t('admin.orders.delete'),
+                  :confirm => t('shared.admin.delete.message', :title => @order.name),
+                  :method => :delete %>
+    </li>
+  </ul>
+</div>
+<div id='records'>
+  <h2><%= t('.order') %></h2>
+  <table id='order'>
+    <tr>
+      <td style="width: 200px;">
+        <strong><%= t('.date') %></strong>
+      </td>
+      <td>
+        <%= l(Date.parse(@order.created_at.to_s), :format => :long) %>
+      </td>
+    </tr>
+
+    <% %w{name lastname email address country zip_code region city street house housing apartment phone}.each do |field| %>
+      <% unless @order.send(field).blank? %>
+        <tr>
+          <td>
+            <strong><%= t("admin.orders.order.#{field}") %></strong>
+          </td>
+          <td>
+            <%= @order.send(field) %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+
+
+
+  </table>
+</div>

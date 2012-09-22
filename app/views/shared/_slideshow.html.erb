@@ -1,0 +1,29 @@
+<div id="slides" class="slide-show">
+  <div class="slide-top"></div>
+  <div class="slide-middle">
+  <% unless Page.find_by_title(slideshow_title).nil? %>
+    <% Page.find_by_title(slideshow_title).children.each do |slide| %>
+      <div>
+        <div class="slide-descr">
+          <%= raw slide.content_for :body %>
+        </div>
+        <%= raw slide.content_for :side_body %>
+      </div>
+    <% end %>		
+  <% end %>
+	</div>
+	<div class="slide-bottom"></div>
+	<div class="slide-nav">
+		<div class="slide-nav-axis">
+			<ul class="slide-nav-buttons">
+      <% unless Page.find_by_title(slideshow_title).nil? %>
+        <% Page.find_by_title(slideshow_title).children.size.times do |i| %>
+          <li>
+            <a href="#<%= raw i %>"></a>
+          </li>
+        <% end %>
+      <% end %>
+			</ul>
+		</div>
+	</div>
+</div>

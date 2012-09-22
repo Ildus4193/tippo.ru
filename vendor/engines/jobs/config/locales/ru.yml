@@ -1,0 +1,25 @@
+ru:
+  shared:
+    admin:
+      image_picker:
+        image: image
+  plugins:
+    jobs:
+      title: Вакансии
+  admin:
+    jobs:
+      actions:
+        create_new: Добавить вакансию
+        reorder: Изменить порядок вакансий
+        reorder_done: Порядок изменен
+      records:
+        title: Вакансии
+        sorry_no_results: Ничего нет
+        no_items_yet: Добавьте новую вакансию
+      job:
+        view_live_html: Посмотреть эту вакансию <br/><em>(в новом окне)</em>
+        edit: Редактировать вакансию
+        delete: Удалить вакансию
+  jobs:
+    show:
+      other: Другая вакансия

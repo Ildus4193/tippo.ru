@@ -1,0 +1,76 @@
+pl:
+  plugins:
+    refinery_questions:
+      title: Zapytania
+      description: Zapewnia formularz kontaktowy i przechowuje zapytania
+      article: neutral
+  questions:
+    new:
+      send: Wyślij wiadomość
+      privacy_policy: Cenimy Twoją prywatność
+  admin:
+    questions:
+      delete: Na zawsze usuń to zapytanie
+      question:
+        read_question: Przeczytaj zapytanieRead the question
+        said: powiedział
+        mark_as_spam: Oznacz jako spam
+        mark_as_ham: Przenieś do przychodzących
+      submenu:
+        inbox: Przychodzące
+        spam: Spam
+        update_notified: Zmień, kto zostaje powiadamiany
+        edit_confirmation_email: Zmień email z potwierdzeniem
+      index:
+        no_questions: Nie ma jeszcze żadnych zapytań.
+        no_spam: Hurra! Nie masz żadnego spamu.
+      show:
+        details: Szczegóły
+        age: Wiek
+        actions: Akcje
+        back_to_all_questions: Powrót do wszystkich zapytań
+        spam: Spam
+        spam_yes: 'tak'
+        question: Zapytanie
+        to: Do
+        from: Od
+        click_to_email: Kliknij tu aby wysłać e-mail na ten adres
+        phone: Telefon
+        date: Data
+        message: Wiadomość
+    question_settings:
+      notification_recipients_form:
+        question_settings_value_name: Wysyłaj powiadomienia do
+        hint: Kiedy dostarczone zostanie nowe zapytanie, Refinery wyśle do Ciebie wiadomość e-mail.
+        example: "Podaj swój adres (lub adresy) e-mail, w taki sposób: jack@work.com, jill@office.com"
+      confirmation_email_form:
+        to: Do
+        from: Od
+        subject: Temat
+        click_to_edit_subject: Kliknij tu aby zmienić temat
+        explanation: Za każdym razem kiedy ktoś kontaktuje się z Tobą poprzez witrynę, Refinery wysyła do tej osoby e-mail.
+        below_edit_email_sent: Poniżej można zmienić e-mail który zostanie wysłany.
+        the_customer_making_question: Klient wykonujący zapytanie
+        message: Wiadomość
+        note: "Uwaga: w celu zamieszczenia imienia klienta należy umieścić tekst %name%"
+  question_mailer:
+    notification:
+      greeting: Cześć
+      you_recieved_new_question: Z Twojej strony ktoś właśnie nowe zapytanie.
+      question_starts: --- początek zapytania ---
+      question_ends: --- koniec zapytania ---
+      from: Od
+      email: E-mail
+      phone: Telefon
+      message: Wiadomość
+      closing_line: Z poważaniem
+      ps: P.S. Wszystkie Twoje zapytania są przechowywane pod zakładką "Zapytania" w Refinery, więc możesz do nich wrócić jeżeli będzie to potrzebne.
+  activerecord:
+    models:
+      question: zapytanie
+    attributes:
+      question:
+        name: Imię
+        email: E-mail
+        phone: Telefon
+        message: Wiadomość

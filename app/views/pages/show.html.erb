@@ -1,0 +1,35 @@
+<% content_for :title do
+  @page.custom_title.empty? ? @page.title : @page.custom_title
+end %>
+
+<% if page_is?'cards' %>
+  <%= render :partial => 'cards' %>
+
+<% elsif in_section?'about' %>
+
+
+  <% if page_is?'news' %>
+    <%= render :partial => 'about_news' %>
+
+  <% elsif page_is?'vacancies' %>
+    <%= render :partial => 'about_vacancies' %>
+
+  <% elsif page_is?'faq' %>
+    <%= render :partial => 'about_faq' %>
+
+  <% elsif page_is?'contact' %>
+    <%= render :partial => 'about_contact' %>
+
+  <% else %>
+    <%= render :partial => 'about' %>
+
+  <% end %>
+
+
+<% elsif page_is?'friends' %>
+  <%= render :partial => 'friends' %>
+
+<% elsif page_is_under?'friends' %>
+  <%= render :partial => 'friend_page' %>
+
+<% end %>

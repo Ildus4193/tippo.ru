@@ -1,0 +1,60 @@
+<div class="social-bar">
+	<div class="social-input-tile"></div>
+    <div id="twttr-widget" class="social-input"></div>
+    <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+    <script>
+      new TWTR.Widget({
+        version: 2,
+        type: 'profile',
+        id:'twttr-widget',
+        rpp: 20,
+        interval: 300,
+        width: 510,
+        height: 222,
+        theme: {
+          shell: {
+            background: 'transparent',
+            color: 'transparent'
+          },
+          tweets: {
+            background: 'transparent',
+            color: '#6B6B6B',
+            links: '#076B9F'
+          }
+        },
+        features: {
+          scrollbar: false,
+          loop: true,
+          live: true,
+          hashtags: true,
+          timestamp: false,
+          avatars: false,
+          behavior: 'default'
+        }
+      }).render().setUser('<%= twitter_user %>').start();
+    </script>
+
+	<div class="social-smm">
+		<div class="soc fb">
+			<div id="fb-root"></div>
+              <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+              <div class="fb-like" data-href="http://tippo.ru/" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false"></div>
+		</div>
+		<div class="soc twitter">
+			<a href="https://twitter.com/share" data-url="http://tippo.ru" class="twitter-share-button" data-count="horizontal">Tweet</a>
+            <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+		</div>
+		<div class="soc gplus">
+			<g:plusone size="medium" href="http://tippo.ru"></g:plusone>
+              <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+                {lang: 'ru'}
+              </script>
+		</div>
+	</div>
+</div>

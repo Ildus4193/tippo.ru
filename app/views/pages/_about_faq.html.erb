@@ -1,0 +1,65 @@
+<div id="wrapper1">
+	<aside>
+		<h1>О Tippo</h1>
+		<nav>
+      <%= render :partial => 'about_menu' %>
+		</nav>
+	</aside>
+	<section class="second-col vacancies">
+        <%= raw @page.content_for(:body) %>
+
+        <ul id="questionsList">
+            <% find_all_faqs.each do |faq| %>
+                <li>
+                <a href="javascript:;"><%= raw faq.message %></a>
+                <div class="vac-descr">
+                    <div class="vac-top"></div>
+                    <p>
+                        <%= raw faq.answer %>
+                    </p>
+                    <div class="vac-bottom"></div>
+                </div>
+                </li>
+            <% end %>
+        </ul>
+
+        <div class="hr-dashed"></div>
+        <h2 style="margin-top: 20px;">ЗАДАТЬ ВОПРОС</h2>
+        <div class="feedback-form">
+          <%= form_for Question.new do |f| %>
+            <div class="line">
+              <label for="id_name">Ваше имя</label>
+              <br/>
+
+              <div id="error-name" class="error">Укажите имя!</div>
+            </div>
+            <div class="line">
+              <%= f.text_field :name, :placeholder => "Имя" %>
+            </div>
+            <div class="line">
+              <label for="id_email">E-mail</label>
+              <div class="error" id="error-email">Укажите e-mail!</div>
+
+            </div>
+            <div class="line">
+              <%= f.text_field :email, :placeholder => "E-mail" %>
+            </div>
+            <div class="line">
+              <label for="id_message">Сообщение</label>
+              <div id="error-message" class="error">Напишите сообщение!</div>
+            </div>
+
+            <div class="line">
+              <%= f.text_area :message, :placeholder => "Текст отзыва"%>
+            </div>
+
+            <button id="submit-question" class="feedback-submit">ОТПРАВИТЬ</button>
+
+          <% end %>
+        </div>
+        <!-- /new question -->
+
+
+        </section>
+        <div class="clear"></div>
+      </div>

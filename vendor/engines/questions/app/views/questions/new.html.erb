@@ -1,0 +1,52 @@
+<%= javascript_include_tag 'lib/jquery-1.5.2.min', 'application' %>
+<div class="container two-cols aside-wide">
+				<div class="article-wrapper">
+					<div class="aside-wrapper">
+						<aside>
+							<div class="feedback request">
+                               <%= form_for @question do |f| %>
+									<h3>Задать вопрос</h3>
+
+									<div class="form">
+                                        <%= f.text_field :name, :placeholder => "Имя" %>
+                                        <%= f.text_field :email, :placeholder => "E-mail" %>
+										<div class="bind-submit">
+                                            <%= f.text_area :message, :placeholder => "Текст отзыва" %>
+                                            <%= f.submit "Задать вопрос", :class => "submit" %>
+										</div>
+									</div>
+
+                              <% end %>
+							</div>
+						</aside>
+						<article class="faq">
+							<ul>
+<% @questions.each do |q| %>
+            					<li>
+									<div class="faq-question-wrap">
+										<div class="question">
+											<div class="q">
+
+												<%= strip_tags(q.message) %>
+												<span class="who">&ndash; <%= q.name %></span>
+											</div>
+											<div class="top"></div><div class="bottom"></div>
+											<div class="left"></div><div class="right"></div>
+											<div class="toggle"></div>
+										</div>
+									</div>
+
+									<div class="answer">
+                                        <%= q.answer %>
+									</div>
+								</li>
+<% end %>
+							</ul>
+							<div class="right-shadow"></div>
+						</article>
+						<div class="clear"></div>
+
+					</div>
+					<div class="article-bottom-hr"></div>
+				</div>
+				<div class="article-shadow"></div>

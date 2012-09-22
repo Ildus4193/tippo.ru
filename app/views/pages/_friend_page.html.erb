@@ -1,0 +1,47 @@
+<article class="main-content">
+<%= raw Page.find_by_title("friends").content_for(:body) %>
+</article>
+<div id="wrapper1">
+	<aside>
+		<div class="aside-logo">
+      <%= raw @page.content_for(:logo) %>		  
+		</div>
+    <%= raw @page.content_for(:contacts) %>
+	</aside>
+	<section class="second-col">
+		<p>
+<%= raw @page.content_for(:body) %>
+		</p>
+		
+		<div class="photo-gallery">
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="part">
+				<img src="/img/blank.gif" alt="" />
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+	<div class="clear"></div>
+</div>
+
+<%= render :partial => 'social' %>

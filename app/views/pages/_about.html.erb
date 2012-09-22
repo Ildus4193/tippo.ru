@@ -1,0 +1,59 @@
+<div id="wrapper1">
+	<aside>
+		<h1>О Tippo</h1>
+		<nav>
+      <%= render :partial => 'pages/about_menu' %>
+		</nav>
+		<div class="aside-email-form">
+			<div class="aside-email-top"></div>
+			<div class="aside-email-middle">
+				<p>
+					Оставь свой e-mail и 
+					узнай первым!
+				</p>
+        <%= form_for Inquiry.new do |f| %>
+        <%= f.required_label :name, "Ваше имя" %>
+        <div class="error" id="error-name" >Укажите имя!</div>
+        <%= f.text_field :name %>
+        
+        <%= f.required_label :email, "E-mail" %>
+        <div class="error" id="error-email">Укажите e-mail!</div>
+        <%= f.text_field :email %>					
+            <%= image_submit_tag "/img/blank.gif", :id=>"id_email_submit" %>
+			</div>
+			<div class="aside-email-bottom"></div>
+                </div>
+            <% end %>
+	</aside>
+	<section class="second-col">
+		<div class="hr-dashed"></div>
+<%= raw @page.content_for(:top) %>
+		<div class="hr-dashed"></div>
+		
+		<div class="chess-blocks">
+			<div class="box white-box">
+<%= raw @page.content_for(:first_text) %>
+
+				<div class="arrow-gt"></div>
+			</div>
+			<div class="box img-box">
+        <%= raw @page.content_for(:first_image) %>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="chess-blocks">
+			<div class="box img-box">
+        <%= raw @page.content_for(:second_image) %>
+			</div>
+			<div class="box white-box">
+        <%= raw @page.content_for(:second_text) %>
+				<div class="arrow-lt"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="hr-dashed"></div>
+	</section>
+	<div class="clear"></div>
+</div>
+
+<%= render :partial => 'pages/social' %>

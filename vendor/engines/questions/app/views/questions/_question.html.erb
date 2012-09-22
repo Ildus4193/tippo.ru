@@ -1,0 +1,12 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>'>
+  <div class='title'>
+    <%= link_to_function truncate(strip_tags(question.message), :length => 30), "toggle_div_description_for('#{question.id}')", :href => "##{question.id}"  %>
+    <br>
+    <div id="description_for_<%= question.id %>">
+      <p>
+        <%= question.answer %>
+        <br>
+      </p>
+    </div>
+  </div>
+</li>

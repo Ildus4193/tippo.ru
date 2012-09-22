@@ -1,0 +1,130 @@
+<%= render :partial => 'shared/slideshow', :locals => {:slideshow_title=>"slideshow for cards"} %>
+
+<% content_for :scripts do %>
+function updateLeftBox(id) {
+    var boxContent = {
+        '1':'<%= escape_javascript raw @page.content_for(:comm1) %>',
+        '2':'<%= escape_javascript raw @page.content_for(:comm2) %>',
+        '3':'<%= escape_javascript raw @page.content_for(:comm3) %>',
+        '4':'<%= escape_javascript raw @page.content_for(:comm4) %>'
+    };
+
+    $('#left-box-content').html( boxContent[id]);
+}
+
+function updateRightBox(id) {
+    var boxContent = {
+        '1':'<%= escape_javascript raw @page.content_for(:reqs) %>',
+        '2':'<%= escape_javascript raw @page.content_for(:prices) %>'
+    };
+
+    $('#right-box-content').html( boxContent[id]);
+}
+<% end %>
+
+<%= render :partial => 'social' %>
+
+<section class="info-box small-info-box">
+<div class="left-box">
+  <ul id="cards-left-box">
+    <li showbox="1" class="active"><a href="javascript:;"></a></li>
+    <li showbox="2"><a href="javascript:;"></a></li>
+    <li showbox="3"><a href="javascript:;"></a></li>
+    <li showbox="4"><a href="javascript:;"></a></li>
+  </ul>
+  <div id="left-box-content" class="box left-box-content">
+    <div>
+      <%= raw @page.content_for(:comm1) %>
+    </div>
+  </div>
+</div>
+<div class="box middle-box">
+  <%= raw @page.content_for(:middle) %>
+</div>
+<div class="right-box">
+  <div class="box right-box-content" id="right-box-content">
+    <%= raw @page.content_for(:reqs) %>
+  </div>
+  <ul id="cards-right-box">
+    <li showbox="1">
+    <a class="r-tab-requirement active" href="javascript:;"></a>
+    </li>
+    <li showbox="2">
+    <a class="r-tab-price" href="javascript:;"></a>
+    </li>
+  </ul>
+</div>
+</section>
+<section class="info-box usage-boxes">
+<div class="box box580 usage-box">
+  <%= raw @page.content_for(:usecases) %>
+</div>
+<div class="box">
+
+
+<!-- form -->
+
+<div style="display:none">
+  <div id="order_form" style="width: 310px;">
+    <center><h2>Заказать бесплатно 10 штук</h2></center>
+  <%= form_for Order.new do |f| %>
+    <% required = [:name, :lastname, :email, :country, :zip_code, :city, :street, :house] %>
+    <% [
+        [:name,      "Имя",          "Укажите имя"],
+        [:lastname,  "Фамилия",      "Укажите фамилию"],
+        [:email,     "E-mail",       "Укажите e-mail"],
+        [:address,   "Адрес",        ""],
+        [:country,   "Страна",       "Укажите страну"],
+        [:zip_code,  "Индекс",       "Укажите индекс"],
+        [:region,    "Регион",       ""],
+        [:city,      "Город (село)", "Укажите город"],
+        [:street,    "Улица",        "Укажите улицу"],
+        [:house,     "Дом",          "Укажите дом"],
+        [:housing,   "Корпус",       ""],
+        [:apartment, "Квартира",     ""],
+      ].each do |field, name, errmsg| %>
+        <div class="error" id="error-<%=field.to_s %>"><%=errmsg%></div>
+        <%= required.include?(field) and f.required_label(field, name) or f.label(field, name) %>
+        <div style="float:right;">
+          <%= f.text_field field %>
+        </div>
+      <br/>
+    <% end %>
+    <br/>
+    Мы просим Вас оставить свой номер телефона, что бы всегда была возможность связаться с вами касательно вашего заказа. Мы гарантируем, что ваш номер не будет использован в рекламных целях (Отсутствие спама). Спасибо за понимание.
+    <br/> <br/>
+
+    <div class="error" id="error-phone">Укажите телефон</div>
+    <div><%= f.required_label :phone, "Телефон" %></div>
+    <%= f.text_field :phone %>
+
+    <div style="text-align: center; padding-top: 1em;">
+      <button id="submit-order" class="feedback-submit" style="left: 0px; bottom: 0px; position:relative;">ЗАКАЗАТЬ</button>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<a id="order" href="#order_form"><h2>Заказать бесплатно 10 штук</h2></a>
+
+<script>
+$("a#order").fancybox();
+</script>
+
+
+
+<!-- /form -->
+
+
+<%= raw @page.content_for(:free_order) %>
+
+
+
+  </div>
+</section>
+<section class="info-box info-hints">
+  <div class="box box580 info-hint">
+    <%= raw @page.content_for(:what_for) %>
+  </div>
+  <div class="box info-hint yay_"></div>
+</section>

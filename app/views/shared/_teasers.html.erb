@@ -1,0 +1,19 @@
+<div class="small-news-cont">
+	<div class="small-news">
+    <% unless Page.find_by_title("teasers").nil? %>
+      <% Page.find_by_title("teasers").children.each_with_index do |teaser,i| %>
+        <div class="box news-box">
+          <div class="box" >
+            <%= raw teaser.content_for :image %>
+          </div>
+          <div class="news-info">
+            <%= raw teaser.content_for :body %>
+          </div>
+        </div>
+        <% if i % 3 == 0 && i>0 %>
+          <div class="clear"></div>
+        <% end %>
+      <% end %>
+    <% end %>
+	</div>
+</div>

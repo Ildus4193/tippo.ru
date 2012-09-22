@@ -1,0 +1,45 @@
+<div id="wrapper1">
+	<aside>
+		<h1>О Tippo</h1>
+		<nav>
+      <%= render :partial => 'about_menu' %>
+		</nav>
+	</aside>
+	<section class="second-col">
+		<div class="hr-dashed"></div>
+<%= raw @page.content_for(:body) %>
+		<div class="hr-dashed"></div>
+		<h2 style="margin-top: 20px;">НАПИСАТЬ НАМ</h2>
+		<div class="feedback-form">
+			<%= form_for Inquiry.new, :html => {:enctype => "multipart/form-data"} do |f| %>
+				<div class="line">
+					<label for="id_name">Ваше имя</label>
+					<div id="error-name" class="error">Укажите имя!</div>
+				</div>
+				<div class="line">
+					<input type="text" name="inquiry[name]" id="inquiry_name" />
+				</div>
+				<div class="line">
+					<label for="id_email">E-mail</label>
+					<div class="error" id="error-email">Укажите e-mail!</div>
+				</div>
+				<div class="line">
+					<input type="text" name="inquiry[email]" id="inquiry_email" /><br/>
+				</div>
+				<div class="line">
+					<label for="id_message">Сообщение</label>
+					<div id="error-message" class="error">Напишите сообщение!</div>
+				</div>
+				<div class="line">
+					<textarea id="inquiry_message" name="inquiry[message]"></textarea>
+				</div>
+
+                <input type="file" id="inquiry_file" style="visibility: hidden;" name="inquiry[file]"/>
+
+				<button id="submit-contacts" class="feedback-submit">ОТПРАВИТЬ</button>
+				<a class="feedback-attach" id="feedback-attach" href="javascript:;">Прикрепить</a>
+			<% end %>
+		</div>
+	</section>
+	<div class="clear"></div>
+</div>
