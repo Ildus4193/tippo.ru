@@ -3,6 +3,7 @@
     <% unless Page.find_by_title("teasers").nil? %>
       <% Page.find_by_title("teasers").children.each_with_index do |teaser,i| %>
         <div class="box news-box">
+          <h2><%= teaser.title %></h2>
           <div class="box" >
             <%= raw teaser.content_for :image %>
           </div>
