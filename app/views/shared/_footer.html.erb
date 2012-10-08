@@ -10,7 +10,7 @@
         <% end %>
         <div class="box reklama-box" style="<%= box_border %>">
           <div class="reklama-info">
-            <h2><%= reklama.title %></h2>
+            <h2><%= raw reklama.title %></h2>
             <%= raw reklama.content_for :body %>
           </div>
           <div class="box" >
@@ -33,11 +33,6 @@
       <%=raw footer_address %>
     </p>
   </address>
-  <div id="footer-phones">
-    <p>
-      <%=raw footer_phones %>
-    </p>
-  </div>
   <div id="footer-email">
     <p>
       <%=raw footer_email %>

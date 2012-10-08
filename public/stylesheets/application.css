@@ -14,6 +14,7 @@ body {
 	margin: 0;
 	border: 0 none;
 	color: #4d4d4f;
+	background: #ffffff url(/img/bg.png) right bottom no-repeat scroll;
 }
 header, nav, section, article, aside, footer {
 	display: block;
@@ -22,7 +23,6 @@ header, nav, section, article, aside, footer {
 	width: 960px;
 	min-height: 500px;
 	margin: 0 auto;
-	background: #ffffff url(/img/bg.png) right bottom no-repeat scroll;
 }
 #wrapper1{
 	width: 880px;
@@ -1065,7 +1065,7 @@ li.active .vac-descr{
 
 .small-reklama-cont{
 	width: 880px;
-	margin: 20px auto 75px;
+	margin-left: 10px;
   height: 100%;
 }
 
@@ -1080,10 +1080,10 @@ li.active .vac-descr{
 	background: transparent none;
   margin: 10px;
   padding: 0;
-	height: 188px;
+	height: 100%;
 }
 .reklama-box .box{
-	width: 274px;
+	width: 135px;
 	padding: 12px 2px 18px;
 	height: 188px;
   background-color: #fff;
@@ -1093,14 +1093,13 @@ li.active .vac-descr{
 	width: 100px;
 }
 .reklama-box h2{
-  margin: 10px 0 5px;
-  text-align: center;
+  margin: 10px 0 10px;
+  text-align: left;
   text-transform: none;
   font-size: 14px;
 }
 .reklama-info {
 	width: 145px;
-	padding: 0px 14px;
 	float: left;
 	min-height: 190px;
 }
@@ -1135,6 +1134,7 @@ footer p{
   position: relative;
   float: left;
   left: 20px;
+  margin-bottom: 140px;
 }
 #footer-logo{
 	left: 0;
@@ -1150,9 +1150,11 @@ footer address{
 	font-style: normal;
 }
 #header-phones {
-  left: 725px;
+  float: right;
   position: relative;
+  right: 18px;
   top: 6px;
+
 }
 #header-phones p{
   font-size: 24px;
