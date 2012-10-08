@@ -11,7 +11,7 @@
 login: &login
   adapter: mysql2 
   username: root 
-  password: mysql 
+  password: Las4BtUT 
   pool: 5
   
 development: &development
@@ -48,9 +48,5 @@ cucumber: &cucumber
   <<: *login
 
 production: &production
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: your_production_database
-  username: your_production_database_login
-  password: your_production_database_password
+  database: tippo 
+  <<: *login

@@ -12,7 +12,13 @@ set :user, 'root'
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
+before 'deploy:setup', 'rvm:install_rvm'
+before 'deploy:setup', 'rvm:install_ruby'
 set :rvm_ruby_string, 'ruby-1.9.3-p194' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
+#set :rvm_ruby_string, :local
+#set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"")
+
+
 
 set :scm, :git # Используем git. Можно, конечно, использовать что-нибудь другое - svn, например, но общая рекомендация для всех кто не использует git - используйте git. 
 set :repository,  "git@github.com:Ildus4193/tippo.ru.git" # Путь до вашего репозитария. Кстати, забор кода с него происходит уже не от вас, а от сервера, поэтому стоит создать пару rsa ключей на сервере и добавить их в deployment keys в настройках репозитария.
