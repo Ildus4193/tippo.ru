@@ -3,11 +3,14 @@ require 'bundler/capistrano' # Для работы bundler. При измене�
 
 set :application, "tippo.ru"
 set :rails_env, "production"
-set :domain, "root@vm11589" # Это необходимо для деплоя через ssh. Именно ради этого я настоятельно советовал сразу же залить на сервер свой ключ, чтобы не вводить паролей.
+set :domain, "78.108.83.225" # Это необходимо для деплоя через ssh. Именно ради этого я настоятельно советовал сразу же залить на сервер свой ключ, чтобы не вводить паролей.
 set :deploy_to, "/var/sites/#{application}"
 set :use_sudo, false
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
+set :user, 'root'
+ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
 
 set :rvm_ruby_string, 'ruby-1.9.3-p194' # Это указание на то, какой Ruby интерпретатор мы будем использовать.
 
@@ -16,9 +19,9 @@ set :repository,  "git@github.com:Ildus4193/tippo.ru.git" # Путь до ваш
 set :branch, "master" # Ветка из которой будем тянуть код для деплоя.
 set :deploy_via, :remote_cache # Указание на то, что стоит хранить кеш репозитария локально и с каждым деплоем лишь подтягивать произведенные изменения. Очень актуально для больших и тяжелых репозитариев.
 
-role :web, tippo.ru
-role :app, tippo.ru
-role :db,  tippo.ru, :primary => true
+role :web, "78.108.83.225"
+role :app, "78.108.83.225"
+role :db,  "78.108.83.225", :primary => true
 
 before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby' # интеграция rvm с capistrano настолько хороша, что при выполнении cap deploy:setup установит себя и указанный в rvm_ruby_string руби.
 
@@ -72,7 +75,7 @@ end
 ## copy files into places
 ## create database
 ## migrate
-end
+#end
 
 #        require './config/boot'
 #        require 'airbrake/capistrano'
