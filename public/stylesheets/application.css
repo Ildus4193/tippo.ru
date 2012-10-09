@@ -153,16 +153,20 @@ header{
 	color: #ffffff;
 }
 .set-green .main-menu li.active a{
-	background-position: -696px -372px;
+	background-position: -696px -373px;
+        height: 31px;
 }
 .set-orange .main-menu li.active a{
 	background-position: -696px -331px;
+        height: 31px;
 }
 .set-pink .main-menu li.active a{
-	background-position: -696px -413px;
+	background-position: -696px -414px;
+        height: 31px;
 }
 .set-blue .main-menu li.active a{
 	background-position: -696px -289px;
+        height: 31px;
 }
 .socials{
 	position: absolute;
